@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Image, StyleSheet, View } from "react-native";
 
-const RoundedBox = ({ source,title}) => {
+const RoundedBox = ({ source, title }) => {
   return (
     <View style={[styles.container]}>
       <View style={[styles.imageContainer]}>
@@ -18,22 +18,22 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     borderColor: "#D7D7D7",
     borderWidth: 0.5, // Set a borderWidth to see the border
-    width: 151, // Set a default width or make it dynamic
-    height: 97, // Set a default height or make it dynamic
+    width: 171, // Set a default width or make it dynamic
+    height: 115, // Set a default height or make it dynamic
   },
   image: {
     width: "100%",
     height: "100%",
     resizeMode: "cover",
   },
-  textStyle:{
+  textStyle: {
     fontWeight: "bold",
     paddingTop: 10,
-    fontSize: 0.7*16,
+    fontSize: 0.7 * 16,
   },
   container: {
-    flexDirection: "column"
-  }
+    flexDirection: "column",
+  },
 });
 
 export default RoundedBox;

@@ -1,13 +1,12 @@
 import React from "react";
 import { Text, Image, StyleSheet, View } from "react-native";
 
-const LargeRoundedBox = ({ source, title }) => {
+const LargeRoundedBox = ({ source }) => {
   return (
     <View style={[styles.container]}>
       <View style={[styles.imageContainer]}>
         <Image source={source} style={styles.image} />
       </View>
-      <Text style={styles.textStyle}>{title}</Text>
     </View>
   );
 };
@@ -16,10 +15,10 @@ const styles = StyleSheet.create({
   imageContainer: {
     borderRadius: 10,
     overflow: "hidden",
-    borderColor: "#D7D7D7",
+    borderColor: "rgba(110, 110, 110, 0.75)",
     borderWidth: 0.5, // Set a borderWidth to see the border
-    width: "100%", // Set a default width or make it dynamic
-    height: 450, // Set a default height or make it dynamic
+    width: 237, // Set a default width or make it dynamic
+    height: 226, // Set a default height or make it dynamic
   },
   image: {
     width: "100%",

@@ -11,6 +11,7 @@ import Home from "../Home";
 import ScanQRPage from "../ScanQRPage";
 import History from "../History";
 import Settings from "../Settings";
+import HomeStackNavigator from "./HomeStackNavigation";
 
 //Screen names
 const homeName = "Home";
@@ -47,11 +48,10 @@ export default function MainContainer() {
           tabBarStyle: {
             height: 70,
             borderBlockColor: "#D7D7D7",
-            
           },
         })}
       >
-        <Tab.Screen name={homeName} component={Home} />
+        <Tab.Screen name={homeName} component={HomeStackNavigator} />
         <Tab.Screen name={scanName} component={ScanQRPage} />
         <Tab.Screen name={historyName} component={History} />
         <Tab.Screen name={settingsName} component={Settings} />

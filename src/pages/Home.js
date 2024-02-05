@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { GLView } from 'expo-gl';
-import { Renderer, loadAsync, THREE } from 'expo-three';
+import React, { useEffect, useRef } from "react";
+import { GLView } from "expo-gl";
+import { Renderer, loadAsync, THREE } from "expo-three";
 import {
   View,
   Text,
@@ -9,49 +9,44 @@ import {
   StyleSheet,
   Dimensions,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import RoundedBox from "../components/RoundedBox";
 import LargeRoundedBox from "../components/LargeRoundedBox";
 import MapBox from "../components/MapBox";
 
-export default function Home({}) {
-
+export default function Home({ navigation }) {
   const favoritePlaces = [
     <RoundedBox
       key={"p1"}
-      source={{ uri: "./assets/Moussa-Castle.png" }}
-      title={"Moussa Castle"}
+      source={require("../assets/hamadeh-palace.jpeg")}
+      title={"Al Hamadeh Palace"}
     />,
     <RoundedBox
       key={"p2"}
-      source={{
-        uri: "./assets/Moussa-Castle.png",
-      }}
+      source={require("../assets/Moussa-Castle.png")}
       title={"Moussa Castle"}
     />,
     <RoundedBox
       key={"p3"}
-      source={{
-        uri: "./assets/Moussa-Castle.png",
-      }}
+      source={require("../assets/Moussa-Castle.png")}
       title={"Moussa Castle"}
     />,
   ];
   return (
     <ScrollView style={styles.container}>
+      <GLView
+        style={{ flex: 1 }}
+        onContextCreate={async (gl) => {
+          // Initialize the THREE.js renderer
+          const renderer = new Renderer({ gl });
+          renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight);
 
-    <GLView
-          style={{ flex: 1 }}
-          onContextCreate={async (gl) => {
-            // Initialize the THREE.js renderer
-            const renderer = new Renderer({ gl });
-            renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight);
-
-            // Set the renderer reference for use in the useEffect hook
-            rendererRef.current = renderer;
-          }}
-        />
+          // Set the renderer reference for use in the useEffect hook
+          rendererRef.current = renderer;
+        }}
+      />
 
       <View style={styles.header}>
         <View style={styles.headerContent}>
@@ -81,16 +76,24 @@ export default function Home({}) {
           >
             {favoritePlaces.map((roundedBox, index) => (
               <View key={index} style={styles.roundedBoxContainer}>
-                {roundedBox}
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("Details", {
+                      backgroundImage: require("../assets/hamadeh-palace.jpeg"),
+                    })
+                  }
+                >
+                  {roundedBox}
+                </TouchableOpacity>
               </View>
             ))}
           </ScrollView>
         </View>
         <View style={styles.secondRow}>
           <Text style={{ marginBottom: 15, fontWeight: "bold" }}>
-            Discover New Sites in Chouf
+            Discover Other Sites in the Chouf Region
           </Text>
-       <MapBox/>
+          <MapBox />
         </View>
       </View>
     </ScrollView>
