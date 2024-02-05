@@ -36,19 +36,6 @@ export default function Home({}) {
   ];
   return (
     <ScrollView style={styles.container}>
-
-    <GLView
-          style={{ flex: 1 }}
-          onContextCreate={async (gl) => {
-            // Initialize the THREE.js renderer
-            const renderer = new Renderer({ gl });
-            renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight);
-
-            // Set the renderer reference for use in the useEffect hook
-            rendererRef.current = renderer;
-          }}
-        />
-
       <View style={styles.header}>
         <View style={styles.headerContent}>
           <View>
