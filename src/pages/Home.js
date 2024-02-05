@@ -19,23 +19,19 @@ export default function Home({}) {
 
   const favoritePlaces = [
     <RoundedBox
-      key={"p1"}
-      source={{ uri: "./assets/Moussa-Castle.png" }}
-      title={"Moussa Castle"}
+      key="p1"
+      source={require('../assets/Moussa-Castle.png')}
+      title="Moussa Castle"
     />,
     <RoundedBox
-      key={"p2"}
-      source={{
-        uri: "./assets/Moussa-Castle.png",
-      }}
-      title={"Moussa Castle"}
+      key="p2"
+      source={require('../assets/Moussa-Castle.png')}
+      title="Moussa Castle"
     />,
     <RoundedBox
-      key={"p3"}
-      source={{
-        uri: "./assets/Moussa-Castle.png",
-      }}
-      title={"Moussa Castle"}
+      key="p3"
+      source={require('../assets/Moussa-Castle.png')}
+      title="Moussa Castle"
     />,
   ];
   return (
